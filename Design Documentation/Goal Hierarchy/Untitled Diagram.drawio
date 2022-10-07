@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-10-07T21:58:56.385Z" agent="5.0 (Windows)" etag="JFeHbGqv_FkBWjPDivOv" version="20.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-07T23:01:53.988Z" agent="5.0 (Windows)" etag="uZ-n-WnbyCeb7R7yaGuc" version="20.4.0" type="github">
   <diagram id="3RCn6N35fP39XIZh213B" name="Page-1">
-    <mxGraphModel dx="1751" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2404" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,13 +14,13 @@
           <mxGeometry x="50" y="270" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-4" value="1.3 Manage Contract" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="270" y="270" width="120" height="40" as="geometry" />
+          <mxGeometry x="290" y="270" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-5" value="1.4 Transfer Money" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="270" width="120" height="40" as="geometry" />
+          <mxGeometry x="510" y="270" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="O7x9XWf4z1wM_RoRaR3g-6" value="1.5 Track Project Progress" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="630" y="270" width="120" height="40" as="geometry" />
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-6" value="1.5 Project Progress" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="270" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-1" target="O7x9XWf4z1wM_RoRaR3g-2">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -53,7 +53,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-13" value="&lt;div&gt;1.6 Chat Room&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="800" y="270" width="110" height="40" as="geometry" />
+          <mxGeometry x="960" y="270" width="90" height="40" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-1" target="O7x9XWf4z1wM_RoRaR3g-13">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -100,7 +100,7 @@
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-26" value="1.2.1 Sort Query Results" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="10" y="340" width="70" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="O7x9XWf4z1wM_RoRaR3g-27" value="1.2.1.1 Implement sorting method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-27" value="1.2.1.1 Implemented sorting method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="10" y="405" width="70" height="60" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-28" value="1.2.2 Manage Query Response" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -133,7 +133,7 @@
             <mxPoint x="290" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="O7x9XWf4z1wM_RoRaR3g-37" value="1.2.3 Implement Dynamic Query" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-37" value="1.2.3 Implement Dynamic Queries" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="180" y="340" width="70" height="60" as="geometry" />
         </mxCell>
         <mxCell id="O7x9XWf4z1wM_RoRaR3g-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-3" target="O7x9XWf4z1wM_RoRaR3g-37">
@@ -158,6 +158,141 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="90" y="370" as="sourcePoint" />
             <mxPoint x="140" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-42" value="1.3.1 Create Project Proposal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-43" value="1.3.1.1 User can accept or reject proposal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="415" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-44" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-4" target="O7x9XWf4z1wM_RoRaR3g-42">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="370" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-45" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-42" target="O7x9XWf4z1wM_RoRaR3g-43">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="370" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-46" value="1.3.2 Client requests a provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-47" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-4" target="O7x9XWf4z1wM_RoRaR3g-46">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="320" as="sourcePoint" />
+            <mxPoint x="315" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-48" value="1.3.2.1 Client can accept default or offer new provider rate" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="410" width="75" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-49" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-46" target="O7x9XWf4z1wM_RoRaR3g-48">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="320" as="sourcePoint" />
+            <mxPoint x="395" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-50" value="1.3.2.2 Provider can accept or reject" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="410" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-51" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-46" target="O7x9XWf4z1wM_RoRaR3g-50">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="370" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-52" value="1.3.3 Draft a contract" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-54" value="1.3.1.1 User can accept or reject contract" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="410" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-55" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-52" target="O7x9XWf4z1wM_RoRaR3g-54">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="315" y="389.9999999999999" as="sourcePoint" />
+            <mxPoint x="295" y="425.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-56" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-4" target="O7x9XWf4z1wM_RoRaR3g-52">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="325" y="399.9999999999999" as="sourcePoint" />
+            <mxPoint x="305" y="435.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-57" value="1.4.1 Process payment" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-58" value="1.4.2 Bill service fee" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-60" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-5" target="O7x9XWf4z1wM_RoRaR3g-57">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="330" as="sourcePoint" />
+            <mxPoint x="650" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-61" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-5" target="O7x9XWf4z1wM_RoRaR3g-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="320" as="sourcePoint" />
+            <mxPoint x="555" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-62" value="1.5.1 Have a visual indicator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="340" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-63" value="1.5.2 Manage change requests" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-64" value="1.5.3 Provide feedback system" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-65" value="1.6.1 Make a chat room for client and provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="955" y="340" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-66" value="1.5.2.1 Provider can accept or reject change" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="400" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-67" value="1.5.3.1 Provider and Client can rate each other" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="400" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-6" target="O7x9XWf4z1wM_RoRaR3g-62">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-70" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-6" target="O7x9XWf4z1wM_RoRaR3g-63">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-71" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-6" target="O7x9XWf4z1wM_RoRaR3g-64">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-72" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-63" target="O7x9XWf4z1wM_RoRaR3g-66">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-73" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-64" target="O7x9XWf4z1wM_RoRaR3g-67">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O7x9XWf4z1wM_RoRaR3g-74" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="O7x9XWf4z1wM_RoRaR3g-13" target="O7x9XWf4z1wM_RoRaR3g-65">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
