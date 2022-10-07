@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-10-07T20:58:34.325Z" agent="5.0 (Windows)" etag="acDexeQKyD11KfOK-D9w" version="20.4.0" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-10-07T21:04:06.575Z" agent="5.0 (Windows)" etag="g_VYLdPDfUkC-A62OrEA" version="20.4.0" type="github" pages="4">
   <diagram id="auWGaBnTaMzGqyMl5fVQ" name="User Network">
     <mxGraphModel dx="2513" dy="915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -714,6 +714,14 @@
         <mxCell id="_2Y537lDgMxOxwALhhPT-45" value="Make chat room" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="370" y="600" width="110" height="10" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="MvC8Ocuo3poEQd0hObaA" name="Money Transfer">
+    <mxGraphModel dx="1081" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
