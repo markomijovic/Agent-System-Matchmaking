@@ -1,1 +1,49 @@
-<mxfile host="app.diagrams.net" modified="2022-10-07T23:06:07.380Z" agent="5.0 (Windows)" version="20.4.0" etag="posKT7otN351zVOV4Tjr" type="github"><diagram id="oqi11bB8qSqtX8uFyJWn">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-10-08T19:40:49.457Z" agent="5.0 (Windows)" etag="Hx-RY4a2NIByPZHNQvMD" version="20.4.0" type="github">
+  <diagram id="oqi11bB8qSqtX8uFyJWn" name="Page-1">
+    <mxGraphModel dx="1321" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-1" value="Interface" style="swimlane;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="105" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-9" value="&lt;div&gt;1.1&lt;/div&gt;&lt;div&gt;1.1.1&lt;/div&gt;&lt;div&gt;1.1.2&lt;/div&gt;&lt;div&gt;1.1.3&lt;/div&gt;&lt;div&gt;1.2.2&lt;/div&gt;&lt;div&gt;1.2.3&lt;/div&gt;&lt;div&gt;1.3&lt;br&gt;&lt;/div&gt;&lt;div&gt;1.5&lt;/div&gt;&lt;div&gt;1.5.1&lt;/div&gt;&lt;div&gt;1.5.3&lt;/div&gt;&lt;div&gt;1.6&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-1">
+          <mxGeometry x="25" y="20" width="50" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-3" value="Organizer" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="380" y="100" width="105" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-16" value="&lt;div&gt;1.1&lt;/div&gt;&lt;div&gt;1.1.2&lt;/div&gt;&lt;div&gt;1.2&lt;/div&gt;&lt;div&gt;1.2.2&lt;/div&gt;&lt;div&gt;1.3.1&lt;/div&gt;&lt;div&gt;1.3.2&lt;/div&gt;&lt;div&gt;1.3.3&lt;/div&gt;&lt;div&gt;1.4&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-3">
+          <mxGeometry x="27.5" y="20" width="50" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-4" value="Database" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="290" y="320" width="105" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-12" value="&lt;div&gt;1.1&lt;/div&gt;&lt;div&gt;1.1.1&lt;/div&gt;&lt;div&gt;1.1.2&lt;br&gt;&lt;/div&gt;&lt;div&gt;1.2&lt;/div&gt;&lt;div&gt;1.2.2&lt;/div&gt;&lt;div&gt;1.3.3.1&lt;/div&gt;&lt;div&gt;1.4&lt;/div&gt;&lt;div&gt;1.4.1&lt;/div&gt;&lt;div&gt;1.5.2&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-4">
+          <mxGeometry x="22.5" y="20" width="60" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-5" value="Search" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="105" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-11" value="&lt;div&gt;1.2&lt;/div&gt;&lt;div&gt;1.2.1&lt;/div&gt;&lt;div&gt;1.2.1.1&lt;/div&gt;&lt;div&gt;1.2.2&lt;/div&gt;&lt;div&gt;1.2.2.1&lt;/div&gt;&lt;div&gt;1.2.3&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-5">
+          <mxGeometry x="22.5" y="20" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-6" value="Contract" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="540" y="320" width="105" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-19" value="&lt;div&gt;1.3&lt;/div&gt;&lt;div&gt;1.3.1&lt;/div&gt;&lt;div&gt;1.3.1.1&lt;/div&gt;&lt;div&gt;1.3.1.2&lt;/div&gt;&lt;div&gt;1.3.2&lt;/div&gt;&lt;div&gt;1.3.2.1&lt;/div&gt;&lt;div&gt;1.3.2.2&lt;/div&gt;&lt;div&gt;1.3.3.3&lt;/div&gt;&lt;div&gt;1.3.3&lt;/div&gt;&lt;div&gt;1.3.1&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-6">
+          <mxGeometry x="22.5" y="20" width="60" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-7" value="Chat" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="600" y="110" width="105" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-18" value="&lt;div&gt;1.6&lt;/div&gt;&lt;div&gt;1.6.1&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="gtmvo6QD4QoAHpJwprnd-7">
+          <mxGeometry x="27.5" y="20" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gtmvo6QD4QoAHpJwprnd-8" value="Payment" style="swimlane;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="730" y="270" width="105" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
