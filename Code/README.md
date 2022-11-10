@@ -6,4 +6,4 @@ Requires:
 `javac -classpath lib\jade.jar -d classes src\main\java\*.java`
 
 ### Run:
-`java -cp lib/jade.jar;classes jade.Boot -gui -agents project:ProjectAgent ...`
+`java -cp lib/jade.jar;classes jade.Boot -gui -agents project:Agents.ProjectAgent ...`
