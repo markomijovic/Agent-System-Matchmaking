@@ -12,3 +12,6 @@ VALUES (1, 1, "Signed", 50.0);
 
 INSERT into project
 VALUES (1, 1, "Dec 30, 2022", 1.0, "TestProject", "Test Description", "In Progress");
+
+INSERT into payment
+VALUES (1, 1, 3050, "Paid");

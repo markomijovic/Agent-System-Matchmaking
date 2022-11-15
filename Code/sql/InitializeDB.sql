@@ -51,4 +51,14 @@ primary key(projectId),
 foreign key(contractId) references contract(contractId)
 );
 
+DROP TABLE IF EXISTS payment;
+CREATE TABLE payment (
+paymentId integer not null auto_increment,
+projectId integer,
+amount double not null,
+paymentStatus varchar(30) not null,
+primary key(paymentId),
+foreign key(projectId) references project(projectId)
+);
+
 
