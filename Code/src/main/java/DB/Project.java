@@ -1,4 +1,4 @@
-package DB;
+package main.java.DB;
 
 import java.util.Date;
 

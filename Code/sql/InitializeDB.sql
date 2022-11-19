@@ -8,10 +8,11 @@ username varchar(30) not null,
 password varchar(30) not null,
 firstName varchar(30) not null,
 lastName varchar(30) not null,
+userType varchar(30) not null,
 hourlyRate double,
 isVerified bool not null,
 subscriptionPlan varchar(30),
-paymentEmail varchar(100),
+paymentEmail varchar(100) not null,
 portfolioLink varchar(100),
 primary key(username)
 );

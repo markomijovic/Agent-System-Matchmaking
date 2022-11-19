@@ -1,4 +1,4 @@
-package DB;
+package main.java.DB;
 
 public class Offer {
     public int id;
