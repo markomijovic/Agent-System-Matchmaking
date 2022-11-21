@@ -1,5 +1,7 @@
 package main.java.DB;
 
+import org.json.JSONObject;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,6 +54,25 @@ public class Offer {
         return offer;
     }
 
+    public static String addNewOffer(JSONObject req) {
+        // Tested - Works
+        try {
+            String query = "INSERT into offer (offerId, offeredRate, offerStatus, providerId, clientId) " +
+                    "values (null, ?, ?, ?, ?)";
+            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+
+            statement.setDouble(1, req.getDouble("offeredRate"));
+            statement.setString(2, req.getString("offerStatus"));
+            statement.setString(3, req.getString("providerUsername"));
+            statement.setString(4, req.getString("clientUsername"));
+            statement.execute();
+        } catch(Exception e) {
+            System.out.println(e);
+            return "Failed";
+        }
+        return "Success";
+    }
+
     public static Offer sqlSchemaToOffer(ResultSet res) throws SQLException {
         // Tested - Works
         if (res != null) {
@@ -72,5 +93,13 @@ public class Offer {
 
         Offer testOffer2 = Offer.getOfferWithClientAndProvider("ClientAdmin", "ProviderAdmin");
         System.out.println(testOffer2.offerStatus);
+
+        JSONObject testObject = new JSONObject();
+        testObject.put("offeredRate", 10.5);
+        testObject.put("offerStatus", "Canceled");
+        testObject.put("providerUsername", "test1");
+        testObject.put("clientUsername", "test2");
+
+        System.out.println(Offer.addNewOffer(testObject));
     }
 }
