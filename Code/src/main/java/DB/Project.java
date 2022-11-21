@@ -53,7 +53,6 @@ public class Project {
             project = sqlSchemaToProject(res);
         } catch(Exception e) {
             System.out.println(e);
-
         }
         return project;
     }
