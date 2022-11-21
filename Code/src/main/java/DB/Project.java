@@ -29,6 +29,7 @@ public class Project {
     }
 
     public static Project getProjectWithId(int id) {
+        // Tested - Works
         Project project = null;
         try {
             String query = "SELECT * from project WHERE projectId=?";
@@ -44,6 +45,7 @@ public class Project {
     }
 
     public static Project getProjectWithContractId(int id) {
+        // Tested - Works
         Project project = null;
         try {
             String query = "SELECT * from project WHERE contractId=?";
@@ -58,6 +60,7 @@ public class Project {
     }
 
     public static String addNewProject(JSONObject req) {
+        // Tested - Works
         try{
             String query="INSERT into project (projectId, contractId, deadline, "+
                     "progressPercentage, projectName, projectDescription, projectStatus) "+
