@@ -2,11 +2,15 @@ package main.java.Agents;
 
 import jade.core.AID;
 import jade.core.Agent;
+import jade.core.behaviours.TickerBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
+import jade.lang.acl.MessageTemplate;
 import main.java.DB.DBLoader;
+import main.java.DB.User;
+import org.json.JSONObject;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +18,8 @@ import java.util.Set;
 public class UserAgent extends Agent {
     protected final DBLoader db = DBLoader.getInstance();
     protected final String SERVICE_NAME = "user-agent-service";
+    protected final String SIGNUP_ID = "signup";
+    protected final String LOGIN_ID = "login";
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
         DFAgentDescription dfd = new DFAgentDescription();
@@ -26,6 +32,59 @@ public class UserAgent extends Agent {
             DFService.register(this, dfd);
         } catch(Exception e) {
             System.out.println(e);
+        }
+    }
+
+    class SignUpBehaviour extends TickerBehaviour {
+        private UserAgent userAgent;
+        public SignUpBehaviour(Agent a, long period) {
+            super(a, period);
+            userAgent = (UserAgent) a;
+        }
+
+        @Override
+        protected void onTick() {
+            MessageTemplate messageTemplate = MessageTemplate.and(
+                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST),
+                    MessageTemplate.MatchConversationId(SIGNUP_ID)
+            );
+            ACLMessage message = userAgent.receive(messageTemplate);
+            if (message != null) {
+                JSONObject request = new JSONObject(message.getContent());
+                String response = "";
+                if (request.getString("type").equals("Provider")) {
+                    response = User.registerProvider(request);
+                } else {
+                    response = User.registerClient(request);
+                }
+                userAgent.sendMessage(response, SIGNUP_ID, ACLMessage.INFORM, userAgent.searchForService());
+            }
+        }
+    }
+
+    class LoginBehaviour extends TickerBehaviour {
+        private UserAgent userAgent;
+        public LoginBehaviour(Agent a, long period) {
+            super(a, period);
+            userAgent = (UserAgent) a;
+        }
+
+        @Override
+        protected void onTick() {
+            MessageTemplate messageTemplate = MessageTemplate.and(
+                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST),
+                    MessageTemplate.MatchConversationId(LOGIN_ID)
+            );
+            ACLMessage message = userAgent.receive(messageTemplate);
+            if (message != null) {
+                JSONObject request = new JSONObject(message.getContent());
+                JSONObject response = User.loginUser(request);
+                if (response != null) {
+                    userAgent.sendMessage(response.toString(), LOGIN_ID, ACLMessage.INFORM, userAgent.searchForService());
+                } else {
+                    userAgent.sendMessage("Login Error", LOGIN_ID, ACLMessage.REFUSE, userAgent.searchForService());
+                }
+            }
         }
     }
 
