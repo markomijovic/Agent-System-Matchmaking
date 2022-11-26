@@ -8,18 +8,17 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
-import main.java.DB.DBLoader;
 import main.java.DB.User;
+import main.java.DB.Util;
 import org.json.JSONObject;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class UserAgent extends Agent {
-    protected final DBLoader db = DBLoader.getInstance();
     protected final String SERVICE_NAME = "user-agent-service";
     protected final String SIGNUP_ID = "signup";
     protected final String LOGIN_ID = "login";
+
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
         DFAgentDescription dfd = new DFAgentDescription();
@@ -33,6 +32,8 @@ public class UserAgent extends Agent {
         } catch(Exception e) {
             System.out.println(e);
         }
+        addBehaviour(new SignUpBehaviour(this, 100));
+        addBehaviour(new LoginBehaviour(this, 100));
     }
 
     class SignUpBehaviour extends TickerBehaviour {
@@ -57,7 +58,7 @@ public class UserAgent extends Agent {
                 } else {
                     response = User.registerClient(request);
                 }
-                userAgent.sendMessage(response, SIGNUP_ID, ACLMessage.INFORM, userAgent.searchForService());
+                userAgent.sendMessage(response, SIGNUP_ID, ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
             }
         }
     }
@@ -80,19 +81,19 @@ public class UserAgent extends Agent {
                 JSONObject request = new JSONObject(message.getContent());
                 JSONObject response = User.loginUser(request);
                 if (response != null) {
-                    userAgent.sendMessage(response.toString(), LOGIN_ID, ACLMessage.INFORM, userAgent.searchForService());
+                    userAgent.sendMessage(response.toString(), LOGIN_ID, ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
                 } else {
-                    userAgent.sendMessage("Login Error", LOGIN_ID, ACLMessage.REFUSE, userAgent.searchForService());
+                    userAgent.sendMessage("Login Error", LOGIN_ID, ACLMessage.REFUSE, userAgent.searchForService(Util.UIServiceName));
                 }
             }
         }
     }
 
-    protected Set<AID> searchForService() {
+    protected Set<AID> searchForService(String serviceName) {
         Set<AID> agents = new HashSet<>();
         DFAgentDescription dfd = new DFAgentDescription();
         ServiceDescription sd = new ServiceDescription();
-        sd.setType(SERVICE_NAME);
+        sd.setType(serviceName);
         dfd.addServices(sd);
         try {
             DFAgentDescription[] services = DFService.search(this, dfd);
