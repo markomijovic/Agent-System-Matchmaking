@@ -7,13 +7,13 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import main.java.DB.DBLoader;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class PaymentAgent extends Agent {
     protected final DBLoader db = DBLoader.getInstance();
     protected final String SERVICE_NAME = "payment-agent-service";
+
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
         DFAgentDescription dfd = new DFAgentDescription();
@@ -29,11 +29,11 @@ public class PaymentAgent extends Agent {
         }
     }
 
-    protected Set<AID> searchForService() {
+    protected Set<AID> searchForService(String serviceName) {
         Set<AID> agents = new HashSet<>();
         DFAgentDescription dfd = new DFAgentDescription();
         ServiceDescription sd = new ServiceDescription();
-        sd.setType(SERVICE_NAME);
+        sd.setType(serviceName);
         dfd.addServices(sd);
         try {
             DFAgentDescription[] services = DFService.search(this, dfd);
@@ -56,6 +56,7 @@ public class PaymentAgent extends Agent {
         }
         send(message);
     }
+
     protected void takeDown() {
         try {
             DFService.deregister(this);
