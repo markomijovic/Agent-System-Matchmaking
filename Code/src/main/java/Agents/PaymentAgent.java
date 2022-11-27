@@ -2,17 +2,21 @@ package main.java.Agents;
 
 import jade.core.AID;
 import jade.core.Agent;
+import jade.core.behaviours.TickerBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
-import main.java.DB.DBLoader;
+import jade.lang.acl.MessageTemplate;
+import main.java.DB.Payment;
+import main.java.DB.Util;
+import org.json.JSONObject;
 import java.util.HashSet;
 import java.util.Set;
 
 public class PaymentAgent extends Agent {
-    protected final DBLoader db = DBLoader.getInstance();
     protected final String SERVICE_NAME = "payment-agent-service";
+    protected final String CREATE_PAYMENT_ID = "create-payment-id";
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
@@ -26,6 +30,33 @@ public class PaymentAgent extends Agent {
             DFService.register(this, dfd);
         } catch(Exception e) {
             System.out.println(e);
+        }
+        addBehaviour(new AddPaymentBehaviour(this, 100));
+    }
+
+    class AddPaymentBehaviour extends TickerBehaviour {
+        private PaymentAgent paymentAgent;
+
+        public AddPaymentBehaviour(Agent a, long period) {
+            super(a, period);
+            this.paymentAgent = (PaymentAgent) a;
+        }
+
+        @Override
+        protected void onTick() {
+            MessageTemplate messageTemplate = MessageTemplate.and(
+                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST),
+                    MessageTemplate.MatchConversationId(CREATE_PAYMENT_ID)
+            );
+            ACLMessage message = paymentAgent.receive(messageTemplate);
+            if (message != null) {
+                JSONObject request = new JSONObject(message.getContent());
+                String response = Payment.addNewPayment(request);
+                paymentAgent.sendMessage(response,
+                        CREATE_PAYMENT_ID,
+                        ACLMessage.INFORM,
+                        paymentAgent.searchForService(Util.UIServiceName));
+            }
         }
     }
 
