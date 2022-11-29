@@ -10,8 +10,10 @@ public class Login extends JFrame implements ActionListener {
     JTextField tf1; // email field
     JButton btn1; // login button
     JPasswordField p1; // password field
+    private OrganizerAgent organizerAgent;
 
-    public Login() {
+    public Login(OrganizerAgent organizerAgent) {
+        this.organizerAgent = organizerAgent;
         setTitle("Login Form in Windows Form");
         setVisible(true);
         setSize(800, 800);
@@ -40,8 +42,9 @@ public class Login extends JFrame implements ActionListener {
         btn1.addActionListener(this);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-        showData();
+        organizerAgent.loginUser("ClientAdmin", "pass123");
     }
 
     public void showData() {
@@ -59,9 +62,4 @@ public class Login extends JFrame implements ActionListener {
             System.out.println(ex);
         }
     }
-
-    public static void main(String arr[]) {
-        new Login();
-    }
-
 }

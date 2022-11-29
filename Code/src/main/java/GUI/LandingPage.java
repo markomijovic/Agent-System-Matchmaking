@@ -30,9 +30,9 @@ public class LandingPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         dispose();
         if (e.getSource() == loginButton) {
-            new Login();
+            new Login(organizerAgent);
         } else {
-            new SignUp();
+            new SignUp(organizerAgent);
         }
     }
 }

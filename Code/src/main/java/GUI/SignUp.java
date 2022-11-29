@@ -1,5 +1,7 @@
 package main.java.GUI;
 
+import main.java.Agents.OrganizerAgent;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,7 +19,7 @@ public class SignUp extends JFrame implements ActionListener   {
     JButton btn1, btn2;  //buttons for signup and clear
     JPasswordField p1, p2;  // password fields
 
-    public SignUp() {
+    public SignUp(OrganizerAgent organizerAgent) {
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
@@ -118,9 +120,5 @@ public class SignUp extends JFrame implements ActionListener   {
             tf6.setText("");
             tf7.setText("");
         }
-    }
-
-    public static void main(String args[]) {
-        new SignUp();
     }
 }
