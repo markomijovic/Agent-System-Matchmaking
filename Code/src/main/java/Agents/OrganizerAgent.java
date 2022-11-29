@@ -6,16 +6,19 @@ import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
+import jade.lang.acl.MessageTemplate;
+import main.java.DB.Util;
 import main.java.GUI.LandingPage;
+import org.json.JSONObject;
 
+import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.Set;
 
 public class OrganizerAgent extends Agent {
-    protected final String SERVICE_NAME = "organizer-agent-service";
+    protected final String SERVICE_NAME = Util.UIServiceName;
 
     protected void setup() {
-        System.out.println("User agent " + getAID().getName() + " is ready.");
         DFAgentDescription dfd = new DFAgentDescription();
         dfd.setName(getAID());
         ServiceDescription sd = new ServiceDescription();
@@ -28,6 +31,39 @@ public class OrganizerAgent extends Agent {
             System.out.println(e);
         }
         new LandingPage(this);
+    }
+
+    public void loginUser(String username, String password) {
+        JSONObject request = new JSONObject();
+        request.put("username", username);
+        request.put("password", password);
+        MessageTemplate template = MessageTemplate.and(
+                MessageTemplate.or(
+                        MessageTemplate.MatchPerformative(ACLMessage.INFORM),
+                        MessageTemplate.MatchPerformative(ACLMessage.REFUSE)
+                ),
+                MessageTemplate.MatchConversationId(Util.USER_LOGIN_ID)
+        );
+        ACLMessage response = sendAgentCall(request, Util.USER_LOGIN_ID, Util.USER_SERVICE_NAME, template);
+        if (response.getPerformative() == ACLMessage.INFORM) {
+            JSONObject user = new JSONObject(response.getContent());
+            System.out.println("worked yay " + user.getString("paymentEmail"));
+        }
+        System.out.println("Invalid login ---- changed to return null later");
+    }
+
+    private ACLMessage sendAgentCall(JSONObject request, String behaviourId, String serviceName, MessageTemplate template) {
+        StringWriter out = new StringWriter();
+        request.write(out);
+        this.sendMessage(out.toString(), behaviourId, ACLMessage.REQUEST, searchForService(serviceName));
+        return blockingReceive(template);
+    }
+
+    private MessageTemplate inferMessageInformTemplate(String behaviourId) {
+        return MessageTemplate.and(
+                MessageTemplate.MatchPerformative(ACLMessage.INFORM),
+                MessageTemplate.MatchConversationId(behaviourId)
+        );
     }
 
     protected Set<AID> searchForService(String serviceName) {

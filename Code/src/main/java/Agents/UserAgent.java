@@ -15,9 +15,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UserAgent extends Agent {
-    protected final String SERVICE_NAME = "user-agent-service";
-    protected final String SIGNUP_ID = "signup";
-    protected final String LOGIN_ID = "login";
+    protected final String SERVICE_NAME = Util.USER_SERVICE_NAME;
+    protected final String SIGNUP_ID = Util.USER_SIGNUP_ID;
+    protected final String LOGIN_ID = Util.USER_LOGIN_ID;
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
