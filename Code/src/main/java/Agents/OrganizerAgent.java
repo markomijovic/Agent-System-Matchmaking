@@ -6,12 +6,12 @@ import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
-import main.java.DB.DBLoader;
+import main.java.GUI.LandingPage;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class OrganizerAgent extends Agent {
-    protected final DBLoader db = DBLoader.getInstance();
     protected final String SERVICE_NAME = "organizer-agent-service";
 
     protected void setup() {
@@ -27,6 +27,7 @@ public class OrganizerAgent extends Agent {
         } catch(Exception e) {
             System.out.println(e);
         }
+        new LandingPage(this);
     }
 
     protected Set<AID> searchForService(String serviceName) {
