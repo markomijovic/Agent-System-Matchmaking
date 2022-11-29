@@ -3,9 +3,9 @@ package main.java.DB;
 import java.sql.*;
 
 public class DBLoader {
-    private final String DB_URL = "jdbc:mysql://localhost:3306/matchmaking";
-    private final String USERNAME = "root";
-    private final String PASSWORD = "water";
+    private final String DB_URL = System.getenv("DB_URL");
+    private final String USERNAME = System.getenv("DB_USERNAME");
+    private final String PASSWORD = System.getenv("DB_PASSWORD");
     private Connection conn;
     private static DBLoader instance;
 
