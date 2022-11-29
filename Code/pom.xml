@@ -16,7 +16,6 @@
         </plugins>
     </build>
 
-
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -29,14 +28,11 @@
             <version>20220924</version>
         </dependency>
         <dependency>
-            <groupId>com.tilab.jade</groupId>
+            <groupId>com.jade</groupId>
             <artifactId>jade</artifactId>
-            <version>4.5.0</version>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:\Users\Marko\Desktop\School\0_MENg\Fall2022\696\Code\lib\jade.jar</systemPath>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.tilab.jade</groupId>-->
-<!--            <artifactId>jade-test-suite</artifactId>-->
-<!--            <version>1.12.0</version>-->
-<!--        </dependency>-->
     </dependencies>
 </project>
