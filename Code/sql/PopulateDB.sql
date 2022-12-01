@@ -1,8 +1,8 @@
 USE matchmaking;
 
 INSERT INTO user
-VALUES ("ProviderAdmin", "pass123", "ProviderName", "ProviderLastName", "Provider", 50.0, true, "None", "provider@gmail.com", "provider.com"),
-	("ClientAdmin", "pass123", "ClientName", "ClientLastName", "Client", null, true, null, "Client@gmail.com", null);
+VALUES ("ProviderAdmin", "pass123", "ProviderName", "ProviderLastName", "Provider", 50.0, true, "provider@gmail.com", "provider.com"),
+	("ClientAdmin", "pass123", "ClientName", "ClientLastName", "Client", 40, true, "Client@gmail.com", null);
     
 INSERT INTO offer
 VALUES (1, 50.0, "Agreed", "ProviderAdmin", "ClientAdmin");

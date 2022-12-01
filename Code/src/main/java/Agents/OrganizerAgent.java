@@ -52,6 +52,23 @@ public class OrganizerAgent extends Agent {
         return null;
     }
 
+    public String registerUser(String username, String fName, String lName, String password,
+                                  String type, String email, String link, double rate, boolean isVerified) {
+        JSONObject request = new JSONObject();
+        request.put("username", username);
+        request.put("password", password);
+        request.put("firstName", fName);
+        request.put("lastName", lName);
+        request.put("type", type);
+        request.put("hourlyRate", rate);
+        request.put("portfolio", link);
+        request.put("isVerified", isVerified);
+        request.put("paymentEmail", email);
+        ACLMessage response = sendAgentCall(request, Util.USER_SIGNUP_ID,
+                Util.USER_SERVICE_NAME, inferMessageInformTemplate(Util.USER_SIGNUP_ID));
+        return response.getContent();
+    }
+
     private ACLMessage sendAgentCall(JSONObject request, String behaviourId, String serviceName, MessageTemplate template) {
         StringWriter out = new StringWriter();
         request.write(out);

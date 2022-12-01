@@ -45,7 +45,7 @@ public class Login extends JFrame implements ActionListener {
             JSONObject userObject = organizerAgent.loginUser(username, password);
             if (userObject != null) {
                 dispose();
-                new HomePage(organizerAgent, userObject);
+                new ProfilePage(organizerAgent);
             }
         }
     }

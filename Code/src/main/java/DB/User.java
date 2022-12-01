@@ -76,12 +76,14 @@ public class User {
         String firstName = req.getString("firstName");
         String lastName = req.getString("lastName");
         String userType = "Client";
+        double hourlyRate = req.getDouble("hourlyRate");
+        String portfolio = req.getString("portfolio");
         boolean isVerified = req.getBoolean("isVerified");
         String paymentEmail = req.getString("paymentEmail");
         try {
             String query = "INSERT INTO user (username, password, firstname, " +
-                    "lastname, userType, isVerified, paymentEmail) values (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+                    "lastname, userType, isVerified, paymentEmail, hourlyRate, portfolioLink) " +
+                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
             statement.setString(1, username);
             statement.setString(2, password);
             statement.setString(3, firstName);
@@ -89,6 +91,8 @@ public class User {
             statement.setString(5, userType);
             statement.setBoolean(6, isVerified);
             statement.setString(7, paymentEmail);
+            statement.setDouble(8, hourlyRate);
+            statement.setString(9, portfolio);
             statement.execute();
         } catch(Exception e) {
             System.out.println(e);

@@ -1,9 +1,6 @@
 package main.java.GUI;
 
 import main.java.Agents.OrganizerAgent;
-
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -14,70 +11,86 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class SignUp extends JFrame implements ActionListener   {
-    JLabel l1, l2, l3, l4, l5, l6, l7, l8;  //all labels for textField
-    JTextField tf1, tf2, tf5, tf6, tf7;   // others fields
+    JLabel uNameLabel, fNameLabel, lNameLabel, passwordLabel, confirmPLabel, emailLabel, portfolioLabel, typeLabel, rateLabel, verifyLabel;  //all labels for textField
+    JTextField userNameField, fNameField, lNameField, userTypeField, emailField, rateField, verifyField, linkField;
     JButton btn1, btn2;  //buttons for signup and clear
     JPasswordField p1, p2;  // password fields
+    private OrganizerAgent organizerAgent;
 
     public SignUp(OrganizerAgent organizerAgent) {
+        this.organizerAgent = organizerAgent;
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Registration Form in Java");
-        l1 = new JLabel("Registration Form in Windows Form:");
-        l1.setForeground(Color.blue);
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
-        l2 = new JLabel("First Name:");
-        l3 = new JLabel("Last Name:");
-        l4 = new JLabel("Create Password:");
-        l5 = new JLabel("Confirm Password:");
-        l6 = new JLabel("Email:");
-        l7 = new JLabel("State:");
-        l8 = new JLabel("Phone No:");
-        tf1 = new JTextField();
-        tf2 = new JTextField();
+        uNameLabel = new JLabel("Username");
+        fNameLabel = new JLabel("First Name:");
+        lNameLabel = new JLabel("Last Name:");
+        passwordLabel = new JLabel("Create Password:");
+        confirmPLabel = new JLabel("Confirm Password:");
+        emailLabel = new JLabel("Payment Email:");
+        portfolioLabel = new JLabel("Portfolio:");
+        typeLabel = new JLabel("Client/Provider:");
+        rateLabel = new JLabel("Hourly Rate:");
+        verifyLabel = new JLabel("Verify (yes/no):");
+        userNameField = new JTextField();
+        fNameField = new JTextField();
+        lNameField = new JTextField();
         p1 = new JPasswordField();
         p2 = new JPasswordField();
-        tf5 = new JTextField();
-        tf6 = new JTextField();
-        tf7 = new JTextField();
+        emailField = new JTextField();
+        linkField = new JTextField();
+        userTypeField = new JTextField();
+        rateField = new JTextField();
+        verifyField = new JTextField();
         btn1 = new JButton("Submit");
         btn2 = new JButton("Clear");
         btn1.addActionListener(this);
         btn2.addActionListener(this);
-        l1.setBounds(100, 30, 400, 30);
-        l2.setBounds(80, 70, 200, 30);
-        l3.setBounds(80, 110, 200, 30);
-        l4.setBounds(80, 150, 200, 30);
-        l5.setBounds(80, 190, 200, 30);
-        l6.setBounds(80, 230, 200, 30);
-        l7.setBounds(80, 270, 200, 30);
-        l8.setBounds(80, 310, 200, 30);
-        tf1.setBounds(300, 70, 200, 30);
-        tf2.setBounds(300, 110, 200, 30);
-        p1.setBounds(300, 150, 200, 30);
-        p2.setBounds(300, 190, 200, 30);
-        tf5.setBounds(300, 230, 200, 30);
-        tf6.setBounds(300, 270, 200, 30);
-        tf7.setBounds(300, 310, 200, 30);
-        btn1.setBounds(50, 350, 100, 30);
-        btn2.setBounds(170, 350, 100, 30);
-        add(l1);
-        add(l2);
-        add(tf1);
-        add(l3);
-        add(tf2);
-        add(l4);
+        uNameLabel.setBounds(80, 30, 200, 30);
+        fNameLabel.setBounds(80, 70, 200, 30);
+        lNameLabel.setBounds(80, 110, 200, 30);
+        passwordLabel.setBounds(80, 150, 200, 30);
+        confirmPLabel.setBounds(80, 190, 200, 30);
+        emailLabel.setBounds(80, 230, 200, 30);
+        portfolioLabel.setBounds(80, 270, 200, 30);
+        typeLabel.setBounds(80, 310, 200, 30);
+        rateLabel.setBounds(80, 350, 200, 30);
+        verifyLabel.setBounds(80, 390, 200, 30);
+
+        userNameField.setBounds(300, 30, 200, 30);
+        fNameField.setBounds(300, 70, 200, 30);
+        lNameField.setBounds(300, 110, 200 ,30);
+        p1.setBounds(300, 150, 150, 30);
+        p2.setBounds(300, 190, 190, 30);
+        emailField.setBounds(300, 230, 200, 30);
+        linkField.setBounds(300, 270, 200, 30);
+        userTypeField.setBounds(300, 310, 200, 30);
+        rateField.setBounds(300, 350, 200, 30);
+        verifyField.setBounds(300, 390, 200, 30);
+        btn1.setBounds(50, 440, 100, 30);
+        btn2.setBounds(170, 440, 100, 30);
+        add(uNameLabel);
+        add(fNameLabel);
+        add(lNameLabel);
+        add(passwordLabel);
+        add(confirmPLabel);
+        add(emailLabel);
+        add(portfolioLabel);
+        add(typeLabel);
+        add(verifyLabel);
+        add(rateLabel);
+        add(userNameField);
+        add(fNameField);
+        add(lNameField);
         add(p1);
-        add(l5);
         add(p2);
-        add(l6);
-        add(tf5);
-        add(l7);
-        add(tf6);
-        add(l8);
-        add(tf7);
+        add(emailField);
+        add(linkField);
+        add(userTypeField);
+        add(rateField);
+        add(verifyField);
         add(btn1);
         add(btn2);
     }
@@ -85,23 +98,27 @@ public class SignUp extends JFrame implements ActionListener   {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn1) {
-            int x = 0;
-            String s1 = tf1.getText();
-            String s2 = tf2.getText();
-            char[] s3 = p1.getPassword();
-            char[] s4 = p2.getPassword();
-            String s8 = new String(s3);
-            String s9 = new String(s4);
-            String s5 = tf5.getText();
-            String s6 = tf6.getText();
-            String s7 = tf7.getText();
-            if (s8.equals(s9)) {
+            String username = userNameField.getText();
+            String fName = fNameField.getText();
+            String lName = lNameField.getText();
+            String pass1 = String.valueOf(p1.getPassword());
+            String pass2 = String.valueOf(p2.getPassword());
+            String email = emailField.getText();
+            String link = linkField.getText();
+            String type = userTypeField.getText();
+            boolean isVerified = verifyField.getText().equalsIgnoreCase("yes");
+            double rate = Double.parseDouble(rateField.getText());
+            if (pass1.equals(pass2)) {
                 try {
-//                    createFolder();
-//                    readFile();
-//                    countLines();
-//                    addData(s1,s8,s2,s5,s6,s7);
-                    JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");
+                    String res = this.organizerAgent.registerUser(username, fName, lName, pass1, type,
+                    email, link, rate, isVerified);
+                    if (res != "") {
+                        JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");
+                        dispose();
+                        new ProfilePage(this.organizerAgent);
+                    } else {
+                        JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not register.");
+                    }
                 }
                 catch (Exception ex) {
                     System.out.println(ex);
@@ -112,13 +129,16 @@ public class SignUp extends JFrame implements ActionListener   {
             }
         }
         else {
-            tf1.setText("");
-            tf2.setText("");
+            userNameField.setText("");
+            fNameField.setText("");
+            lNameField.setText("");
             p1.setText("");
             p2.setText("");
-            tf5.setText("");
-            tf6.setText("");
-            tf7.setText("");
+            emailField.setText("");
+            linkField.setText("");
+            rateField.setText("");
+            verifyField.setText("");
+            userTypeField.setText("");
         }
     }
 }
