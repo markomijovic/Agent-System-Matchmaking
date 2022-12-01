@@ -33,7 +33,7 @@ public class OrganizerAgent extends Agent {
         new LandingPage(this);
     }
 
-    public void loginUser(String username, String password) {
+    public JSONObject loginUser(String username, String password) {
         JSONObject request = new JSONObject();
         request.put("username", username);
         request.put("password", password);
@@ -47,9 +47,9 @@ public class OrganizerAgent extends Agent {
         ACLMessage response = sendAgentCall(request, Util.USER_LOGIN_ID, Util.USER_SERVICE_NAME, template);
         if (response.getPerformative() == ACLMessage.INFORM) {
             JSONObject user = new JSONObject(response.getContent());
-            System.out.println("worked yay " + user.getString("paymentEmail"));
+            return user;
         }
-        System.out.println("Invalid login ---- changed to return null later");
+        return null;
     }
 
     private ACLMessage sendAgentCall(JSONObject request, String behaviourId, String serviceName, MessageTemplate template) {
