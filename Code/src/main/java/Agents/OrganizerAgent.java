@@ -9,8 +9,8 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import main.java.DB.Util;
 import main.java.GUI.LandingPage;
+import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.Set;
@@ -69,10 +69,23 @@ public class OrganizerAgent extends Agent {
         return response.getContent();
     }
 
+    public JSONArray getAllUsers(String userType) {
+        JSONObject request = new JSONObject();
+        request.put("userType", userType);
+        ACLMessage response = sendAgentCall(request, Util.GET_ALL_USERS_ID, Util.USER_SERVICE_NAME,
+                inferMessageInformTemplate(Util.GET_ALL_USERS_ID));
+        JSONArray users = new JSONArray(response.getContent());
+        return users;
+    }
+
+    public String addNewProject(JSONObject request) {
+        return "";
+    }
+
     private ACLMessage sendAgentCall(JSONObject request, String behaviourId, String serviceName, MessageTemplate template) {
-        StringWriter out = new StringWriter();
-        request.write(out);
-        this.sendMessage(out.toString(), behaviourId, ACLMessage.REQUEST, searchForService(serviceName));
+        StringWriter content = new StringWriter();
+        request.write(content);
+        this.sendMessage(content.toString(), behaviourId, ACLMessage.REQUEST, searchForService(serviceName));
         return blockingReceive(template);
     }
 

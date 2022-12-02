@@ -1,6 +1,7 @@
 package main.java.GUI;
 
 import main.java.Agents.OrganizerAgent;
+import main.java.DB.User;
 import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.event.*;
@@ -45,7 +46,12 @@ public class Login extends JFrame implements ActionListener {
             JSONObject userObject = organizerAgent.loginUser(username, password);
             if (userObject != null) {
                 dispose();
-                new ProfilePage(organizerAgent);
+                User u = User.getCurrentUser(username); // Singleton pattern to set the current user
+                if (userObject.getString("userType").equals("Client")) {
+                    new AllUsersPage(organizerAgent);
+                } else {
+                    new ProfilePage(organizerAgent);
+                }
             }
         }
     }
