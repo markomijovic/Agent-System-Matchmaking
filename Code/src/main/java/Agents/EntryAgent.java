@@ -11,6 +11,8 @@ public class EntryAgent extends Agent {
     protected void setup() {
         createAgent("Organizer_Agent", "main.java.Agents.OrganizerAgent");
         createAgent("User_Agent", "main.java.Agents.UserAgent");
+        createAgent("Project_Agent", "main.java.Agents.ProjectAgent");
+        createAgent("Payment_Agent", "main.java.Agents.PaymentAgent");
     }
 
     private void createAgent(String name, String className) {
