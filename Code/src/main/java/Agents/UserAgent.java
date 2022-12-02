@@ -10,6 +10,7 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import main.java.DB.User;
 import main.java.DB.Util;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class UserAgent extends Agent {
     protected final String SERVICE_NAME = Util.USER_SERVICE_NAME;
     protected final String SIGNUP_ID = Util.USER_SIGNUP_ID;
     protected final String LOGIN_ID = Util.USER_LOGIN_ID;
+    protected final String GET_ALL_USERS_ID = Util.GET_ALL_USERS_ID;
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
@@ -34,6 +36,7 @@ public class UserAgent extends Agent {
         }
         addBehaviour(new SignUpBehaviour(this, 100));
         addBehaviour(new LoginBehaviour(this, 100));
+        addBehaviour(new GetAllUsersBehaviour(this, 100));
     }
 
     class SignUpBehaviour extends TickerBehaviour {
@@ -84,6 +87,32 @@ public class UserAgent extends Agent {
                     userAgent.sendMessage(response.toString(), LOGIN_ID, ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
                 } else {
                     userAgent.sendMessage("Login Error", LOGIN_ID, ACLMessage.REFUSE, userAgent.searchForService(Util.UIServiceName));
+                }
+            }
+        }
+    }
+
+    class GetAllUsersBehaviour extends TickerBehaviour {
+        private UserAgent userAgent;
+
+        public GetAllUsersBehaviour(Agent a, long period) {
+            super(a, period);
+            this.userAgent = (UserAgent) a;
+        }
+
+        @Override
+        protected void onTick() {
+            MessageTemplate messageTemplate = MessageTemplate.and(
+                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST),
+                    MessageTemplate.MatchConversationId(GET_ALL_USERS_ID)
+            );
+            ACLMessage message = userAgent.receive(messageTemplate);
+            if (message != null) {
+                JSONObject request = new JSONObject(message.getContent());
+                JSONArray response = User.getAllUsers(request.getString("userType"));
+                if (response != null) {
+                    userAgent.sendMessage(response.toString(), GET_ALL_USERS_ID,
+                            ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
                 }
             }
         }

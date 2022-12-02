@@ -3,63 +3,37 @@ package main.java.DB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class User {
     public String username;
-    public String password;
-    public String firstName;
-    public String lastName;
-    public String userType;
-    public double rate;
-    public boolean verified;
-    public String paymentEmail;
-    public String portfolioLink;
     private final static DBLoader db = DBLoader.getInstance();
+    private static User instance;
 
-    public User(String username, String password,
-                String firstName, String lastName, String userType, double rate,
-                boolean verified, String paymentEmail, String portfolioLink) {
+    private User(String username) {
         this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userType = userType;
-        this.rate = rate;
-        this.verified = verified;
-        this.paymentEmail = paymentEmail;
-        this.portfolioLink = portfolioLink;
     }
 
-    public static User getWithUsername(String username) {
-        // Works Tested
-        User user = null;
-        try {
-            String query = String.format("SELECT * FROM user WHERE username=?", username);
-            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
-            statement.setString(1, username);
-            ResultSet res = statement.executeQuery();
-            if (res != null) {
-                res.next();
-                user = sqlSchemaToUser(res);
-            }
-        } catch(Exception e) {
-            System.out.println(e);
+    public static User getCurrentUser(String username) {
+        if (instance == null) {
+            instance = new User(username);
         }
-        return user;
+        return instance;
     }
-    public static ArrayList<User> getAllUsers() {
+
+    public static JSONArray getAllUsers(String type) {
         // Works - Tested
-        ArrayList<User> users = new ArrayList<>();
+        JSONArray users = new JSONArray();
         try {
-            String query = "SELECT * FROM user";
+            String query = "SELECT * FROM user WHERE userType=? order by isVerified desc";
             PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+            statement.setString(1, type);
             ResultSet res = statement.executeQuery();
             if (res != null) {
                 while (res.next()) {
-                    User user = sqlSchemaToUser(res);
-                    users.add(user);
+                    JSONObject user = sqlSchemaToJSON(res);
+                    users.put(user);
                 }
             }
         } catch(Exception e) {
@@ -155,21 +129,6 @@ public class User {
         return user;
     }
 
-    public static User sqlSchemaToUser(ResultSet res) throws SQLException {
-        // Works - Tested
-        String username = res.getString("username");
-        String password = res.getString("password");
-        String firstName = res.getString("firstName");
-        String lastName = res.getString("lastName");
-        String userType = res.getString("userType");
-        double rate = res.getDouble("hourlyRate");
-        boolean verified = res.getBoolean("isVerified");
-        String paymentEmail = res.getString("paymentEmail");
-        String portfolioLink = res.getString("portfolioLink");
-        return new User(username, password, firstName, lastName, userType, rate,
-                verified, paymentEmail, portfolioLink);
-    }
-
     public static JSONObject sqlSchemaToJSON(ResultSet res) throws  SQLException {
         String username = res.getString("username");
         String password = res.getString("password");
@@ -191,26 +150,5 @@ public class User {
         user.put("paymentEmail", paymentEmail);
         user.put("portfolioLink", portfolioLink);
         return user;
-    }
-
-    public static void main(String[] args) {
-        ArrayList<User> users = User.getAllUsers();
-        for (User user : users) {
-            System.out.println(user.username);
-        }
-        JSONObject testUser = new JSONObject();
-        testUser.put("username", "test2");
-        testUser.put("password", "test1");
-        testUser.put("firstName", "fNameTest1");
-        testUser.put("lastName", "lNameTest1");
-        testUser.put("isVerified", false);
-        testUser.put("paymentEmail", "fake@gmail.com");
-        testUser.put("hourlyRate", 15.6);
-        testUser.put("portfolio", "fake.com");
-        User.registerProvider(testUser);
-        User testClientUser = User.getWithUsername("test1");
-        JSONObject testJson = User.loginUser(testUser);
-        System.out.println(testClientUser.firstName + testClientUser.lastName);
-        System.out.println(testJson.get("username"));
     }
 }
