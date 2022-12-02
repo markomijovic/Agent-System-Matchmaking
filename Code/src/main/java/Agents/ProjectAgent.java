@@ -76,7 +76,9 @@ public class ProjectAgent extends Agent {
             );
             ACLMessage message = projectAgent.receive(messageTemplate);
             if (message != null) {
-                JSONArray response = Project.getAllProjects();
+                JSONObject request = new JSONObject(message.getContent());
+                JSONArray response = Project.getAllProjects(request.getString("username"),
+                        request.getString("userType"));
                 projectAgent.sendMessage(response.toString(),
                         GET_ALL_PROJECTS_ID,
                         ACLMessage.INFORM,
