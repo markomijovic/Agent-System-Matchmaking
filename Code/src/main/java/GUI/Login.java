@@ -50,7 +50,7 @@ public class Login extends JFrame implements ActionListener {
                 if (userObject.getString("userType").equals("Client")) {
                     new AllUsersPage(organizerAgent);
                 } else {
-                    new ProfilePage(organizerAgent);
+                    new AllProjectsPage(organizerAgent);
                 }
             }
         }

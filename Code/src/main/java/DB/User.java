@@ -8,11 +8,13 @@ import org.json.JSONObject;
 
 public class User {
     public String username;
+    public String userType;
     private final static DBLoader db = DBLoader.getInstance();
     private static User instance;
 
-    private User(String username) {
+    private User(String username, String userType) {
         this.username = username;
+        this.userType = userType;
     }
 
     public static User getCurrentUser() {
@@ -20,7 +22,7 @@ public class User {
     }
 
     public static void setCurrentUser(String username) {
-        instance = new User(username);
+        instance = new User(username, getUserType(username));
     }
 
     public static JSONArray getAllUsers(String type) {
@@ -104,9 +106,25 @@ public class User {
             statement.execute();
         } catch(Exception e) {
             System.out.println(e);
-            return "Failed";
+            return "";
         }
         return "Success";
+    }
+
+    public static String getUserType(String username) {
+        try {
+            String query = "SELECT userType FROM user WHERE username=?";
+            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+            statement.setString(1, username);
+            ResultSet res = statement.executeQuery();
+            if (res != null) {
+                res.next();
+                return res.getString("userType");
+            }
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+        return "";
     }
 
     public static JSONObject loginUser(JSONObject req) {

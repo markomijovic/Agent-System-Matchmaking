@@ -7,6 +7,7 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
+import main.java.DB.User;
 import main.java.DB.Util;
 import main.java.GUI.LandingPage;
 import org.json.JSONArray;
@@ -76,6 +77,18 @@ public class OrganizerAgent extends Agent {
                 inferMessageInformTemplate(Util.GET_ALL_USERS_ID));
         JSONArray users = new JSONArray(response.getContent());
         return users;
+    }
+
+    public JSONArray getAllProjects() {
+        String username = User.getCurrentUser().username;
+        String userType = User.getUserType(username);
+        JSONObject request = new JSONObject();
+        request.put("username", username);
+        request.put("userType", userType);
+        ACLMessage response = sendAgentCall(request, Util.GET_ALL_PROJECTS_ID, Util.PROJECT_SERVICE_NAME,
+                inferMessageInformTemplate(Util.GET_ALL_PROJECTS_ID));
+        JSONArray projects = new JSONArray(response.getContent());
+        return projects;
     }
 
     public String addNewProject(JSONObject request) {

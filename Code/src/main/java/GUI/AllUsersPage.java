@@ -12,6 +12,7 @@ public class AllUsersPage extends JFrame implements ActionListener {
     private OrganizerAgent organizerAgent;
     JSONArray users;
     JTextField field;
+    private JButton button, button2;
 
     public AllUsersPage(OrganizerAgent organizerAgent) {
         super("List of Providers");
@@ -24,14 +25,18 @@ public class AllUsersPage extends JFrame implements ActionListener {
         setSize(1000, 500);
         setVisible(true);
 
-        JButton button = new JButton("Request");
+        button = new JButton("Request");
         button.addActionListener(this);
         button.setBounds(20, 430, 100, 30);
+        button2 = new JButton("My Projects");
+        button2.addActionListener(this);
+        button2.setBounds(800, 430, 120, 30);
         JLabel label = new JLabel("Enter Username:");
         label.setBounds(20, 380, 100, 30);
         field = new JTextField();
-        field.setBounds(130, 380, 200 ,30);
+        field.setBounds(170, 380, 200 ,30);
         getContentPane().add(button);
+        getContentPane().add(button2);
         getContentPane().add(label);
         getContentPane().add(field);
         getContentPane().add(scroll);
@@ -59,9 +64,14 @@ public class AllUsersPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String username = field.getText();
-        if (username != null && username != "") {
+        if (e.getSource() == button) {
+            if (username != null && username != "") {
+                dispose();
+                new CreateProjectPage(this.organizerAgent, username);
+            }
+        } else {
             dispose();
-            new CreateProjectPage(this.organizerAgent, username);
+            new AllProjectsPage(this.organizerAgent);
         }
     }
 }

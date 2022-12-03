@@ -32,10 +32,10 @@ public class Project {
         JSONArray projects = new JSONArray();
         try {
             String query;
-            if (userType == "Provider") {
-                query = "SELECT * FROM project WHERE providerId=?";
+            if (userType.equals("Provider")) {
+                query = "SELECT * FROM project WHERE providerId=? order by deadline asc";
             } else {
-                query = "SELECT * FROM project WHERE clientId=?";
+                query = "SELECT * FROM project WHERE clientId=? order by deadline asc";
             }
             PreparedStatement statement = db.getDBConnection().prepareStatement(query);
             statement.setString(1, username);
@@ -80,27 +80,12 @@ public class Project {
         project.put("projectId", res.getInt("projectId"));
         project.put("providerId", res.getString("providerId"));
         project.put("clientId", res.getString("clientId"));
-        project.put("hourlyRate", res.getDouble("hourlyRate"));
+        project.put("hourlyRate", res.getDouble("rate"));
         project.put("deadline", res.getString("deadline"));
         project.put("progressPercentage", res.getDouble("progressPercentage"));
         project.put("projectName", res.getString("projectName"));
         project.put("projectDescription", res.getString("projectDescription"));
         project.put("projectStatus", res.getString("projectStatus"));
         return project;
-    }
-
-    public static void main(String[] args) {
-
-//        Project project2 = Project.getProjectWithContractId(1);
-//        System.out.println(project2.projectName);
-
-//        JSONObject testObject = new JSONObject();
-//        testObject.put("contractId", 2);
-//        testObject.put("deadline", "Jan 5, 2022");
-//        testObject.put("progressPercentage", 99.13);
-//        testObject.put("projectName", "Tester Name");
-//        testObject.put("projectDescription", "Test desc");
-//        testObject.put("projectStatus", "In Progress");
-//        System.out.println(Project.addNewProject(testObject));
     }
 }
