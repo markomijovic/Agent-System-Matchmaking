@@ -20,6 +20,7 @@ public class UserAgent extends Agent {
     protected final String SIGNUP_ID = Util.USER_SIGNUP_ID;
     protected final String LOGIN_ID = Util.USER_LOGIN_ID;
     protected final String GET_ALL_USERS_ID = Util.GET_ALL_USERS_ID;
+    protected final String GET_USER_RATE_ID = Util.GET_USER_RATE_ID;
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
@@ -37,6 +38,7 @@ public class UserAgent extends Agent {
         addBehaviour(new SignUpBehaviour(this, 100));
         addBehaviour(new LoginBehaviour(this, 100));
         addBehaviour(new GetAllUsersBehaviour(this, 100));
+        addBehaviour(new GetUserRateBehaviour(this, 100));
     }
 
     class SignUpBehaviour extends TickerBehaviour {
@@ -112,6 +114,32 @@ public class UserAgent extends Agent {
                 JSONArray response = User.getAllUsers(request.getString("userType"));
                 if (response != null) {
                     userAgent.sendMessage(response.toString(), GET_ALL_USERS_ID,
+                            ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
+                }
+            }
+        }
+    }
+
+    class GetUserRateBehaviour extends TickerBehaviour {
+        private UserAgent userAgent;
+
+        public GetUserRateBehaviour(Agent a, long period) {
+            super(a, period);
+            this.userAgent = (UserAgent) a;
+        }
+
+        @Override
+        protected void onTick() {
+            MessageTemplate messageTemplate = MessageTemplate.and(
+                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST),
+                    MessageTemplate.MatchConversationId(GET_USER_RATE_ID)
+            );
+            ACLMessage message = userAgent.receive(messageTemplate);
+            if (message != null) {
+                JSONObject request = new JSONObject(message.getContent());
+                double rate = User.getUserRate(request.getString("username"));
+                if (rate != -1) {
+                    userAgent.sendMessage(String.valueOf(rate), GET_USER_RATE_ID,
                             ACLMessage.INFORM, userAgent.searchForService(Util.UIServiceName));
                 }
             }

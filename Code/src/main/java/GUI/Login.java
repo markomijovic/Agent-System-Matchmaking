@@ -46,7 +46,7 @@ public class Login extends JFrame implements ActionListener {
             JSONObject userObject = organizerAgent.loginUser(username, password);
             if (userObject != null) {
                 dispose();
-                User u = User.getCurrentUser(username); // Singleton pattern to set the current user
+                User.setCurrentUser(username); // Singleton pattern to set the current user
                 if (userObject.getString("userType").equals("Client")) {
                     new AllUsersPage(organizerAgent);
                 } else {

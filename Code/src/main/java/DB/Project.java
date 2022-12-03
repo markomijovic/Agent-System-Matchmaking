@@ -70,7 +70,7 @@ public class Project {
             statement.execute();
         }catch(Exception e){
             System.out.println(e);
-            return "Failed";
+            return "";
         }
         return "Success";
     }

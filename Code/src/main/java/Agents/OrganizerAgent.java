@@ -79,7 +79,18 @@ public class OrganizerAgent extends Agent {
     }
 
     public String addNewProject(JSONObject request) {
-        return "";
+        ACLMessage response = sendAgentCall(request, Util.CREATE_PROJECT_ID, Util.PROJECT_SERVICE_NAME,
+                inferMessageInformTemplate(Util.CREATE_PROJECT_ID));
+        return response.getContent();
+    }
+
+    public String getProviderRate(String providerUsername) {
+        JSONObject request = new JSONObject();
+        request.put("username", providerUsername);
+        ACLMessage response = sendAgentCall(request, Util.GET_USER_RATE_ID, Util.USER_SERVICE_NAME,
+                inferMessageInformTemplate(Util.GET_USER_RATE_ID
+                ));
+        return response.getContent();
     }
 
     private ACLMessage sendAgentCall(JSONObject request, String behaviourId, String serviceName, MessageTemplate template) {

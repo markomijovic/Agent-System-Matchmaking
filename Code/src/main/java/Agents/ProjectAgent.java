@@ -16,9 +16,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ProjectAgent extends Agent {
-    protected final String CREATE_PROJECT_ID = "create-project";
-    protected final String GET_ALL_PROJECTS_ID = "get-all_projects";
-    protected final String SERVICE_NAME = "project-agent-service";
+    protected final String CREATE_PROJECT_ID = Util.CREATE_PROJECT_ID;
+    protected final String GET_ALL_PROJECTS_ID = Util.GET_ALL_PROJECTS_ID;
+    protected final String SERVICE_NAME = Util.PROJECT_SERVICE_NAME;
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");

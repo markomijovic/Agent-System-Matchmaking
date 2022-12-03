@@ -15,11 +15,12 @@ public class User {
         this.username = username;
     }
 
-    public static User getCurrentUser(String username) {
-        if (instance == null) {
-            instance = new User(username);
-        }
+    public static User getCurrentUser() {
         return instance;
+    }
+
+    public static void setCurrentUser(String username) {
+        instance = new User(username);
     }
 
     public static JSONArray getAllUsers(String type) {
@@ -127,6 +128,22 @@ public class User {
             System.out.println(e);
         }
         return user;
+    }
+
+    public static double getUserRate(String username) {
+        try {
+            String query = "SELECT hourlyRate FROM user where username=?";
+            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet != null) {
+                resultSet.next();
+                return resultSet.getDouble("hourlyRate");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return -1;
     }
 
     public static JSONObject sqlSchemaToJSON(ResultSet res) throws  SQLException {
