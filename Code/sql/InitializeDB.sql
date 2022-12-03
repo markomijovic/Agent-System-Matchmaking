@@ -50,17 +50,20 @@ projectName varchar(30) not null,
 projectDescription varchar(300),
 projectStatus varchar(30),
 primary key(projectId),
+foreign key(providerId) references user(username),
 foreign key(clientId) references user(username)
 );
 
 DROP TABLE IF EXISTS payment;
 CREATE TABLE payment (
 paymentId integer not null auto_increment,
-projectId integer,
+providerId varchar(30) not null,
+clientId varchar(30) not null,
 amount double not null,
 paymentStatus varchar(30) not null,
 primary key(paymentId),
-foreign key(projectId) references project(projectId)
+foreign key(providerId) references user(username),
+foreign key(clientId) references user(username)
 );
 
 

@@ -13,5 +13,7 @@ public class Util {
     public static final String GET_ALL_PROJECTS_ID = "get_all_projects";
     public static final String CREATE_PROJECT_ID = "create-project";
     public static final String PROJECT_SERVICE_NAME = "project-agent-service";
-
+    // Payment
+    public static final String CREATE_NEW_PAYMENT = "create_payment_id";
+    public static final String PAYMENT_SERVICE_NAME = "payment-agent-service";
 }

@@ -97,6 +97,16 @@ public class OrganizerAgent extends Agent {
         return response.getContent();
     }
 
+    public void addNewPayment(String providerUsername, String clientUsername) {
+        JSONObject request = new JSONObject();
+        request.put("providerId", providerUsername);
+        request.put("clientId", clientUsername);
+        request.put("amount", Double.valueOf(getProviderRate(providerUsername))*8*30);
+        request.put("paymentStatus", "Processed");
+        ACLMessage response = sendAgentCall(request, Util.CREATE_NEW_PAYMENT, Util.PAYMENT_SERVICE_NAME,
+                inferMessageInformTemplate(Util.CREATE_NEW_PAYMENT));
+    }
+
     public String getProviderRate(String providerUsername) {
         JSONObject request = new JSONObject();
         request.put("username", providerUsername);

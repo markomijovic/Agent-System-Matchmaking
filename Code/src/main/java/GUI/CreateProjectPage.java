@@ -92,6 +92,7 @@ public class CreateProjectPage extends JFrame implements ActionListener {
             if (res != "" && res != null) {
                 JOptionPane.showMessageDialog(btn1, "Project Started Successfully");
                 dispose();
+                this.organizerAgent.addNewPayment(providerUsername, clientUsername);
                 new AllProjectsPage(this.organizerAgent);
             } else {
                 JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not add project.");

@@ -14,4 +14,4 @@ INSERT into project
 VALUES (1, "ProviderAdmin", "ClientAdmin", 30.0, "Dec 30, 2022", 0.0, "TestProject", "Test Description", "In Progress");
 
 INSERT into payment
-VALUES (1, 1, 3050, "Paid");
+VALUES (1, "ProviderAdmin", "ClientAdmin", 3050, "Paid");

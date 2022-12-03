@@ -38,6 +38,6 @@ public class AllProjectsPage extends JFrame {
             data[i][7] = project.getString("projectStatus");
             i++;
         }
-        dm.setDataVector(data, new Object[]{"Provider Id", "Client Id", "Rate/hr", "Deadline", "Progress %", "Description", "Status"});
+        dm.setDataVector(data, new Object[]{"Provider Id", "Client Id", "Rate/hr", "Deadline", "Progress %", "Project Name", "Description", "Status"});
     }
 }

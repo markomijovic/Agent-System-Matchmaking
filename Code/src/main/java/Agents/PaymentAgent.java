@@ -15,8 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PaymentAgent extends Agent {
-    protected final String SERVICE_NAME = "payment-agent-service";
-    protected final String CREATE_PAYMENT_ID = "create-payment-id";
+    protected final String SERVICE_NAME = Util.PAYMENT_SERVICE_NAME;
+    protected final String CREATE_PAYMENT_ID = Util.CREATE_NEW_PAYMENT;
 
     protected void setup() {
         System.out.println("User agent " + getAID().getName() + " is ready.");
