@@ -17,6 +17,8 @@ In our case:
 
 #### 4. Use the InitializeDB sql script to initialize your local database and the PopulateDB to populate the database with some example data. You can find the sql scripts in Code/sql directory.
 
+#### 5. Run the EntryAgent at the beginning.
+
 #### This Project Developed By,
 
 ##### Subroto Kumer Deb Nath Nath (30187307) &
