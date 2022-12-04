@@ -79,6 +79,7 @@ public class OrganizerAgent extends Agent {
         return users;
     }
 
+
     public JSONArray getAllProjects() {
         String username = User.getCurrentUser().username;
         String userType = User.getUserType(username);
@@ -91,11 +92,26 @@ public class OrganizerAgent extends Agent {
         return projects;
     }
 
+    //test
+    public JSONArray getOpenProjects() {
+        String username = "OpenProject";
+        String userType = User.getUserType(username);
+        JSONObject request = new JSONObject();
+        request.put("username", username);
+        request.put("userType", userType);
+        ACLMessage response = sendAgentCall(request, Util.GET_ALL_PROJECTS_ID, Util.PROJECT_SERVICE_NAME,
+                inferMessageInformTemplate(Util.GET_ALL_PROJECTS_ID));
+        JSONArray OpenProjects = new JSONArray(response.getContent());
+        return OpenProjects;
+    }
+    //test
+
     public String addNewProject(JSONObject request) {
         ACLMessage response = sendAgentCall(request, Util.CREATE_PROJECT_ID, Util.PROJECT_SERVICE_NAME,
                 inferMessageInformTemplate(Util.CREATE_PROJECT_ID));
         return response.getContent();
     }
+
 
     public void addNewPayment(String providerUsername, String clientUsername) {
         JSONObject request = new JSONObject();

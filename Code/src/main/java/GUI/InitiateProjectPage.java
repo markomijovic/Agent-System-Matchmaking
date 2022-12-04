@@ -7,32 +7,32 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateProjectPage extends JFrame implements ActionListener {
+public class InitiateProjectPage extends JFrame implements ActionListener {
     private JLabel nameLabel, descLabel, statusLabel, progressLabel, rateLabel, deadlineLabel;
-    private JTextField nameField, descField, statusField, progressField, deadlineField;
+    private JTextField nameField, descField, statusField, progressField, rateField, deadlineField;
     private JButton btn1, btn2; // submit and clear
     private OrganizerAgent organizerAgent;
-    private String pUsername;
 
-    public CreateProjectPage(OrganizerAgent organizerAgent, String providerUsername) {
+
+    public InitiateProjectPage(OrganizerAgent organizerAgent) {
         this.organizerAgent = organizerAgent;
-        this.pUsername = providerUsername;
         setVisible(true);
         setSize(700, 600);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Create project for " + providerUsername);
+        setTitle("Create project for bid");
         nameLabel = new JLabel("Project Name");
         descLabel = new JLabel("Project Description");
         statusLabel = new JLabel("Project Status");
         progressLabel = new JLabel("Progress");
         deadlineLabel = new JLabel("Deadline Date");
-        rateLabel = new JLabel("Agreed Rate = " + organizerAgent.getProviderRate(providerUsername));
+        rateLabel = new JLabel("Expected Rate ");
         nameField = new JTextField();
         descField = new JTextField();
         statusField = new JTextField();
         progressField = new JTextField();
         deadlineField = new JTextField();
+        rateField = new JTextField();
         btn1 = new JButton("Submit");
         btn2 = new JButton("Clear");
         btn1.addActionListener(this);
@@ -49,6 +49,7 @@ public class CreateProjectPage extends JFrame implements ActionListener {
         statusField.setBounds(300, 110, 200, 30);
         progressField.setBounds(300, 150, 200, 30);
         deadlineField.setBounds(300, 190, 200, 30);
+        rateField.setBounds(300, 230, 200, 30);
         btn1.setBounds(50, 440, 100, 30);
         btn2.setBounds(170, 440, 100, 30);
 
@@ -60,6 +61,7 @@ public class CreateProjectPage extends JFrame implements ActionListener {
         add(rateLabel);
         add(nameField);
         add(descField);
+        add(rateField);
         add(statusField);
         add(progressField);
         add(deadlineField);
@@ -70,16 +72,17 @@ public class CreateProjectPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn1) {
-            String providerUsername = this.pUsername;
+
             String clientUsername = User.getCurrentUser().username;
-            double rate = Double.valueOf(this.organizerAgent.getProviderRate(providerUsername));
+            String providername= "OpenProject";
+            double rate = Double.valueOf(rateField.getText());
             String name = nameField.getText();
             String desc = descField.getText();
             double progress = Double.valueOf(progressField.getText());
             String status = statusField.getText();
             String deadline = deadlineField.getText();
             JSONObject request = new JSONObject();
-            request.put("providerId", providerUsername);
+            request.put("providerId",providername);
             request.put("clientId", clientUsername);
             request.put("hourlyRate", rate);
             request.put("deadline", deadline);
@@ -89,12 +92,11 @@ public class CreateProjectPage extends JFrame implements ActionListener {
             request.put("projectStatus", status);
             String res = this.organizerAgent.addNewProject(request);
             if (res != "" && res != null) {
-                JOptionPane.showMessageDialog(btn1, "Project Started Successfully");
+                JOptionPane.showMessageDialog(btn1, "Project Initiated Successfully");
                 dispose();
-                this.organizerAgent.addNewPayment(providerUsername, clientUsername);
                 new AllProjectsPage(this.organizerAgent);
             } else {
-                JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not add project.");
+                JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not initiate project.");
             }
         } else {
             nameField.setText("");
@@ -102,7 +104,7 @@ public class CreateProjectPage extends JFrame implements ActionListener {
             statusField.setText("");
             progressField.setText("");
             deadlineField.setText("");
-
+            rateField.setText("");
         }
     }
 }

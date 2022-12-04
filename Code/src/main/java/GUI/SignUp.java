@@ -10,12 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 public class SignUp extends JFrame implements ActionListener   {
     JLabel uNameLabel, fNameLabel, lNameLabel, passwordLabel, confirmPLabel, emailLabel, portfolioLabel, typeLabel, rateLabel, verifyLabel;  //all labels for textField
     JTextField userNameField, fNameField, lNameField, userTypeField, emailField, rateField, verifyField, linkField;
     JButton btn1, btn2;  //buttons for signup and clear
     JPasswordField p1, p2;  // password fields
     private OrganizerAgent organizerAgent;
+
 
     public SignUp(OrganizerAgent organizerAgent) {
         this.organizerAgent = organizerAgent;
@@ -113,9 +115,10 @@ public class SignUp extends JFrame implements ActionListener   {
                     String res = this.organizerAgent.registerUser(username, fName, lName, pass1, type,
                     email, link, rate, isVerified);
                     if (res != "") {
-                        JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");
+                        JOptionPane.showMessageDialog(btn1, "SignUp Successful! Press OK to Login.");
                         dispose();
-                        new ProfilePage(this.organizerAgent);
+                        new Login(organizerAgent);
+                        //new ProfilePage(this.organizerAgent);
                     } else {
                         JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not register.");
                     }

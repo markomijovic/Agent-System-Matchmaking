@@ -1,5 +1,7 @@
 package main.java.GUI;
 
+//import GUI.ClientPage;
+//import GUI.ProviderPage;
 import main.java.Agents.OrganizerAgent;
 import main.java.DB.User;
 import org.json.JSONObject;
@@ -24,12 +26,12 @@ public class Login extends JFrame implements ActionListener {
         l3 = new JLabel("Enter Password:");
         tf1 = new JTextField();
         p1 = new JPasswordField();
-        btn1 = new JButton("Submit");
+        btn1 = new JButton("Login");
         l2.setBounds(80, 70, 200, 30);
         l3.setBounds(80, 110, 200, 30);
         tf1.setBounds(300, 70, 200, 30);
         p1.setBounds(300, 110, 200, 30);
-        btn1.setBounds(150, 160, 100, 30);
+        btn1.setBounds(200, 160, 100, 30);
         add(l2);
         add(tf1);
         add(l3);
@@ -48,9 +50,9 @@ public class Login extends JFrame implements ActionListener {
                 dispose();
                 User.setCurrentUser(username); // Singleton pattern to set the current user
                 if (userObject.getString("userType").equals("Client")) {
-                    new AllUsersPage(organizerAgent);
+                    new ClientPage(organizerAgent);
                 } else {
-                    new AllProjectsPage(organizerAgent);
+                    new ProviderPage(organizerAgent);
                 }
             }
         }

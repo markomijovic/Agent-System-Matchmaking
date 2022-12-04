@@ -46,6 +46,8 @@ public class User {
         return users;
     }
 
+
+
     public static String registerClient(JSONObject req) {
         // Works - Tested
         String username = req.getString("username");
@@ -120,6 +122,22 @@ public class User {
             if (res != null) {
                 res.next();
                 return res.getString("userType");
+            }
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+        return "";
+    }
+
+    public static String getUserFirstName(String username) {
+        try {
+            String query = "SELECT firstName FROM user WHERE username=?";
+            PreparedStatement statement = db.getDBConnection().prepareStatement(query);
+            statement.setString(1, username);
+            ResultSet res = statement.executeQuery();
+            if (res != null) {
+                res.next();
+                return res.getString("firstName");
             }
         } catch(Exception e) {
             System.out.println(e);

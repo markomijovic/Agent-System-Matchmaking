@@ -38,10 +38,11 @@ primary key(username)
 -- -- foreign key(clientId) references user(username)
 -- -- );
 
+
 DROP TABLE IF EXISTS project;
 CREATE TABLE project (
 projectId integer not null auto_increment,
-providerId varchar(30) not null,
+providerId varchar(30),
 clientId varchar(30) not null,
 rate double not null,
 deadline varchar(50),
