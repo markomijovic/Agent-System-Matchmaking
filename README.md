@@ -8,7 +8,7 @@
 #### For IntelliJ Idea, go to Run -> Edit Configurations -> (+) Add New Configuration -> Application -> Give Any Name -> Select JDK Version
 
 For IntelliJ: 
-![alt text](https://github.com/markomijovic/Agent-System-Matchmaking/blob/main/Photo/IntelliJ.JPG "IntelliJ Idea Setup")
+![alt text](https://github.com/markomijovic/Agent-System-Matchmaking/blob/main/Photo/IntelliJnew.JPG "IntelliJ Idea Setup")
 
 #### 3. Got to Code/src/main/DB/DBLoader, set the Database URL on line 6, Username on line 7 and the Password on line 8 to connect with your local database.
 
