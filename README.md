@@ -1,7 +1,7 @@
-## Multi-Agent Based Research Matchmaking Project. 
+## Multi-Agent Based Research Matchmaking Project.
 
 
-### Instruction To Run The Project
+### Instructions To Run The Project
 #### 1. Add the jade.jar to the Project Library
 #### 2. Don't forget to add new Application Configuration in RUN/Debug Configurations. Main class should be jade.Boot and Program Argument should be -gui.
 
