@@ -44,7 +44,7 @@ public class BidPage extends JFrame implements ActionListener {
 
     private void setTableModel(DefaultTableModel dm, JSONArray OpenProjects) {
         int rows =OpenProjects.length();
-        int cols = 9;
+        int cols = 8;
         String [][] data = new String[rows][cols];
         int i = 0;
         for (Object p : OpenProjects) {
@@ -57,10 +57,10 @@ public class BidPage extends JFrame implements ActionListener {
             data[i][5] = String.valueOf(project.getDouble("progressPercentage"));
             data[i][6] = project.getString("projectName");
             data[i][7] = project.getString("projectDescription");
-            data[i][8] = project.getString("projectStatus");
+
             i++;
         }
-        dm.setDataVector(data, new Object[]{"Project ID", "Provider Id", "Client Id", "Rate/hr", "Deadline", "Progress %", "Project Name", "Description", "Status"});
+        dm.setDataVector(data, new Object[]{"Project ID", "STATUS", "Client Id", "Rate/hr", "Deadline", "Progress %", "Project Name", "Description" });
     }
 
     @Override

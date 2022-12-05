@@ -4,11 +4,12 @@ package main.java.GUI;
 import main.java.Agents.OrganizerAgent;
 import main.java.DB.User;
 import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ProjectCreate extends JFrame implements ActionListener {
+public class ProjectCreate extends JFrame implements ActionListener{
     private JLabel CLabel, PID, nameLabel, descLabel, statusLabel, progressLabel, rateLabel, deadlineLabel;
     private JTextField CField, PField, nameField, rateField, descField, statusField, progressField, deadlineField;
     private JButton btn1, btn2; // submit and clear
@@ -21,7 +22,7 @@ public class ProjectCreate extends JFrame implements ActionListener {
         setSize(700, 600);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Fill the form to bit");
+        setTitle("Fill the form to bid");
 
         PID= new JLabel("Project ID");
         CLabel= new JLabel("Client ID");
@@ -102,7 +103,8 @@ public class ProjectCreate extends JFrame implements ActionListener {
             String deadline = deadlineField.getText();
             String CUsername = CField.getText();
             int pid = Integer.valueOf(PField.getText());
-            JSONObject request = new JSONObject();
+
+           JSONObject request = new JSONObject();
             request.put("projectId", pid);
             request.put("providerId", PUsername);
             request.put("clientId", CUsername);
@@ -117,7 +119,10 @@ public class ProjectCreate extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(btn1, "Project Started Successfully");
                 dispose();
                 this.organizerAgent.addNewPayment(PUsername, CUsername);
+                new main.java.GUI.UpdateProject(pid);
                 new AllProjectsPage(this.organizerAgent);
+               // new main.java.GUI.UpdateProject();
+
             } else {
                 JOptionPane.showMessageDialog(btn1, "Something went wrong. Could not add project.");
             }

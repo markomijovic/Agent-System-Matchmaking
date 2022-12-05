@@ -5,9 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class AllProjectsPage extends JFrame {
+public class AllProjectsPage extends JFrame implements ActionListener {
     JSONArray projects;
+    private OrganizerAgent organizerAgent;
+    JTextField field;
+    private JButton button;
 
     public AllProjectsPage(OrganizerAgent organizerAgent) {
         super("Your Projects");
@@ -18,6 +23,20 @@ public class AllProjectsPage extends JFrame {
         JScrollPane scroll = new JScrollPane(table);
         setSize(1000, 500);
         setVisible(true);
+        getContentPane().add(scroll);
+
+
+        button = new JButton("Update Project");
+        button.addActionListener(this);
+        button.setBounds(270, 380, 150, 30);
+
+        JLabel label = new JLabel("Enter Project ID:");
+        label.setBounds(20, 380, 100, 30);
+        field = new JTextField();
+        field.setBounds(150, 380, 100 ,30);
+        getContentPane().add(button);
+        getContentPane().add(label);
+        getContentPane().add(field);
         getContentPane().add(scroll);
     }
 
@@ -40,5 +59,20 @@ public class AllProjectsPage extends JFrame {
             i++;
         }
         dm.setDataVector(data, new Object[]{"Project ID", "Provider Id", "Client Id", "Rate/hr", "Deadline", "Progress %", "Project Name", "Description", "Status"});
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String ProjectId = field.getText();
+        if (e.getSource() == button) {
+            if (ProjectId != null && ProjectId != "") {
+                dispose();
+                //new CreteProjectPage(this.organizerAgent, ProjectId);  //need to change
+                new main.java.GUI.UpdateProjectPage(this.organizerAgent);
+            }
+        } else {
+            dispose();
+            new ClientPage(this.organizerAgent);
+        }
     }
 }
